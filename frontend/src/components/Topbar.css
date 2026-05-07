@@ -1,0 +1,56 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  height: 80px;
+  gap: 48px;
+}
+
+.logo {
+  text-decoration: none;
+  min-width: 250px; /* Match sidebar width or similar */
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.topbar-spacer {
+  min-width: 250px; /* Equal to logo width to push search to center */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-panel);
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 500px; /* Slightly wider as it's centered now */
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-btn {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  color: var(--text-primary);
+}

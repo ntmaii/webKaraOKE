@@ -1,0 +1,287 @@
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 180px); /* Adjust based on topbar and bottom player */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-pink);
+}
+
+.nav-item.admin-nav-link:hover {
+  color: #fbbf24;
+}
+
+.nav-item.admin-nav-link.active {
+  color: #fbbf24;
+}
+
+.nav-item.admin-nav-link.active::before {
+  background-color: #fbbf24;
+}
+
+.sidebar-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.icon-btn {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  color: var(--text-primary);
+}
+
+/* ── Gear button ─────────────────────────────── */
+.gear-btn {
+  position: relative;
+  border-radius: 8px;
+  padding: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gear-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--accent-pink);
+}
+
+.gear-btn.gear-active {
+  color: var(--accent-pink);
+  background-color: rgba(236, 72, 153, 0.12);
+}
+
+.gear-spin {
+  animation: gear-rotate 0.5s ease forwards;
+}
+
+@keyframes gear-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(90deg); }
+}
+
+/* ── Settings wrapper & dropdown ─────────────── */
+.settings-wrapper {
+  position: relative;
+}
+
+.settings-dropdown {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 230px;
+  background: linear-gradient(145deg, #1e1b2e, #2a2440);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  border-radius: 14px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  z-index: 999;
+  animation: dropdown-in 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transform-origin: bottom right;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Header (user info) ──────────────────────── */
+.settings-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 12px;
+}
+
+.settings-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-pink, #ec4899), #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.4);
+}
+
+.settings-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.settings-email {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.settings-close-btn {
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 4px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Divider ─────────────────────────────────── */
+.settings-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 0 10px;
+}
+
+/* ── Menu items ──────────────────────────────── */
+.settings-menu {
+  padding: 6px 8px;
+}
+
+.settings-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+}
+
+.settings-menu-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--text-primary);
+}
+
+.settings-chevron {
+  margin-left: auto;
+  opacity: 0.5;
+  transition: transform 0.15s;
+}
+
+.settings-menu-item:hover .settings-chevron {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+/* ── Logout section ──────────────────────────── */
+.settings-logout-section {
+  padding: 8px;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.08));
+  border: 1px solid rgba(239,68,68,0.25);
+  color: #f87171;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+
+.logout-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(239,68,68,0.28), rgba(239,68,68,0.18));
+  border-color: rgba(239,68,68,0.5);
+  color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.logout-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.logout-btn.logging-out {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner for logout */
+.logout-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(248, 113, 113, 0.3);
+  border-top-color: #f87171;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,161 @@
+.bottom-player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: var(--bg-main);
+  padding: 0 32px 16px 32px;
+  z-index: 100;
+}
+
+.bottom-player {
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  justify-content: space-between;
+}
+
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 250px;
+}
+
+.player-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.player-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.player-artist {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.player-center {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.control-btn {
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.control-btn.active {
+  color: var(--accent-pink);
+  filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.5));
+}
+
+.control-btn.small {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.control-btn.small:hover {
+  opacity: 1;
+}
+
+/* Removed volume-control styles */
+
+.player-timeline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.time-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  min-width: 35px;
+  text-align: center;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: var(--bg-hover);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.progress-bar:hover .progress-fill {
+  background-color: var(--text-accent);
+}
+
+.progress-bar:hover .progress-fill::after {
+  opacity: 1;
+}
+
+.player-right {
+  width: 250px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.video-btn {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  background: var(--bg-hover);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.video-btn:hover {
+  color: var(--text-primary);
+  background: var(--accent-pink);
+}

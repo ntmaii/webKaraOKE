@@ -1,0 +1,31 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+  padding: 0 32px;
+  gap: 32px;
+  margin-bottom: 116px; /* 100px bottom player + 16px padding */
+}
+
+.content-area {
+  flex: 1;
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 24px;
+  overflow-y: auto;
+  height: calc(100vh - 180px); /* Calculate relative to view height */
+}
+
+.content-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: 4px;
+}
